@@ -222,9 +222,8 @@ def binary_search(sorted_list, target):
             left = mid + 1
         else:
             right = mid - 1
-    if(len(sorted_list)==0):
-        return -1
-    return len(sorted_list)        # BUG: should return -1 when not found
+
+    return -1        # BUG: should return -1 when not found
 
 #DONE
 # ============================================================
