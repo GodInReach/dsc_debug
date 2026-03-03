@@ -167,7 +167,7 @@ def merge_sorted_arrays(arr1, arr2):
 
     return result
 
-
+#DONE
 # ============================================================
 # FUNCTION 6: Password Validator
 # ============================================================
@@ -194,7 +194,7 @@ def validate_password(password):
     # BUG: uses OR instead of AND — any single condition passes
     return has_length and has_upper and has_digit
 
-
+#DONE
 # ============================================================
 # FUNCTION 7: Binary Search
 # ============================================================
@@ -212,9 +212,9 @@ def binary_search(sorted_list, target):
     Returns:
         int: Index of target, or -1 if not found.
     """
-    left, right = 1, len(sorted_list) - 1   # BUG: left should start at 0
+    left, right = 0, len(sorted_list) - 1   # BUG: left should start at 0
 
-    while left < right:            # BUG: should be left <= right
+    while left <= right:            # BUG: should be left <= right
         mid = (left + right) // 2
         if sorted_list[mid] == target:
             return mid
@@ -222,7 +222,8 @@ def binary_search(sorted_list, target):
             left = mid + 1
         else:
             right = mid - 1
-
+    if(len(sorted_list)==0):
+        return -1
     return len(sorted_list)        # BUG: should return -1 when not found
 
 
