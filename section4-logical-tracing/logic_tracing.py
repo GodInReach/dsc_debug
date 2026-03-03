@@ -262,7 +262,7 @@ def detect_cycle(head):
 
     return False   # BUG: should return False when no cycle found
 
-
+#DONE
 # ============================================================
 # FUNCTION 9: Tax Bracket Calculator
 # ============================================================
@@ -285,10 +285,10 @@ def calculate_tax_bracket(income):
     Returns:
         float: Total tax owed.
     """
-    if income < 0:             # BUG: should be income <= 0 (zero income not handled)
+    if income <= 0:             # BUG: should be income <= 0 (zero income not handled)
         return 0.0
 
-    tax = 100.0                 # BUG: should start at 0.0 (phantom flat-fee bug)
+    tax = 0.0                 # BUG: should start at 0.0 (phantom flat-fee bug)
 
     # BUG: Bracket conditions checked in wrong order —
     # the first condition (income > 85000) catches everything above 85k
@@ -296,10 +296,10 @@ def calculate_tax_bracket(income):
     if income > 85000:
         tax += (income - 85000) * 0.40
         income = 85000
-    if income > 10000:             # BUG: should check > 40000 here
+    if income > 40000:             # BUG: should check > 40000 here
         tax += (income - 10000) * 0.20
         income = 10000
-    if income > 40000:             # BUG: should check > 10000 here
+    if income > 10000:             # BUG: should check > 10000 here
         tax += (income - 40000) * 0.30
         income = 40000
     tax += income * 0.10
