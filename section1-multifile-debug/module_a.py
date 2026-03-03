@@ -6,7 +6,7 @@ User management module
 from module_b import log_analytics
 
 # BUG 9: Wrong import - should use state.increment_count()
-from state import user_count  # Wrong! Should import function, not variable
+from state import increment_count  #FIXED Wrong! Should import function, not variable
 
 
 users = []
@@ -14,9 +14,9 @@ users = []
 
 def add_user():
     """Add a new user"""
-    global user_count
-    # BUG: Modifying local copy, not the actual state
-    user_count += 1  # This doesn't work!
+    user_count = increment_count()
+    #FINED IG BUG: Modifying local copy, not the actual state
+    user_count += 1  #FIXED IG This doesn't work!
     
     user_id = len(users) + 1
     users.append(f"User_{user_id}")
