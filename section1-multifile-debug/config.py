@@ -2,8 +2,8 @@
 System configuration
 """
 
-# BUG 2: None instead of int (causes config validation to break entirely)
-MAX_USERS = None  # BUG: Should be an integer like 5, not None
+#FIXED BUG 2: None instead of int (causes config validation to break entirely)
+MAX_USERS = 25  # BUG: Should be an integer like 5, not None
 
 SYSTEM_NAME = "User Allocation System v2.0"
 
