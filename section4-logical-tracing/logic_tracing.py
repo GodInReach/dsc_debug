@@ -192,7 +192,7 @@ def validate_password(password):
     has_digit = any(c.isdigit() for c in password)
 
     # BUG: uses OR instead of AND — any single condition passes
-    return has_length or has_upper or has_digit
+    return has_length and has_upper and has_digit
 
 
 # ============================================================
