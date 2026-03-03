@@ -17,7 +17,7 @@ MODULES AFFECTED:
 - Financial calculations engine
 """
 
-
+#DONE
 # ============================================================
 # FUNCTION 1: E-Commerce Discount Calculator
 # ============================================================
@@ -36,9 +36,9 @@ def calculate_discount(order_amount):
     Returns:
         float: The discount percentage (0.0, 0.05, or 0.10).
     """
-    if order_amount > 100:        # BUG: should be >= 100
+    if order_amount >= 100:        # BUG: should be >= 100
         return 0.10
-    elif order_amount > 50:       # BUG: should be >= 50
+    elif order_amount >= 50:       # BUG: should be >= 50
         return 0.05
     else:
         return 0.0
