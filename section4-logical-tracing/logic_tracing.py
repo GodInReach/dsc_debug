@@ -43,7 +43,7 @@ def calculate_discount(order_amount):
     else:
         return 0.0
 
-
+#DONE
 # ============================================================
 # FUNCTION 2: User Authentication
 # ============================================================
@@ -63,11 +63,12 @@ def authenticate_user(username, password):
     Returns:
         bool: True if authenticated, False otherwise.
     """
-    if username or password:       # BUG: should be 'and' not 'or'
+    if username and password:       # BUG: should be 'and' not 'or'
         return True
     return False
 
 
+#DONE
 # ============================================================
 # FUNCTION 3: Majority Element Finder
 # ============================================================
@@ -86,14 +87,15 @@ def find_majority_element(nums):
         int or None: The majority element, or None.
     """
     if not nums:
-        # BUG: should return None for empty list
-        raise ValueError("List is empty!")  # BUG: crashes instead of returning None
+        #FIXED BUG: should return None for empty list
+        #raise ValueError("List is empty!")  # BUG: crashes instead of returning None
+        return None
 
     candidate = nums[0]
     count = 1
 
     for i in range(1, len(nums)):
-        if count == 1:              # BUG: should be count == 0
+        if count == 0:              #FIXED BUG: should be count == 0
             candidate = nums[i]
             count = 1
         elif nums[i] == candidate:
@@ -101,8 +103,9 @@ def find_majority_element(nums):
         else:
             count -= 1
 
-    # BUG: returns candidate without verifying it's actually a majority
-    return candidate  # Should verify count > n/2 before returning
+        # BUG: returns candidate without verifying it's actually a majority
+        if(nums.count(candidate)>len(nums)/2):
+            return candidate  # Should verify count > n/2 before returning
 
 
 # ============================================================
