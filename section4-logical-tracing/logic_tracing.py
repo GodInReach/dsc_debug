@@ -296,11 +296,11 @@ def calculate_tax_bracket(income):
         tax += (income - 85000) * 0.40
         income = 85000
     if income > 40000:             # BUG: should check > 40000 here
-        tax += (income - 10000) * 0.20
-        income = 10000
-    if income > 10000:             # BUG: should check > 10000 here
         tax += (income - 40000) * 0.30
         income = 40000
+    if income > 10000:             # BUG: should check > 10000 here
+        tax += (income - 10000) * 0.20
+        income = 10000
     tax += income * 0.10
 
     return round(tax, 2)
