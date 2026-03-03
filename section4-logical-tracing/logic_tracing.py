@@ -375,12 +375,14 @@ def calculate_fibonacci(n):
     Raises:
         ValueError: If n is negative.
     """
-    if n < -1:   # BUG: should be n < 0 (misses n == -1 case)
+    if n < 0:   # BUG: should be n < 0 (misses n == -1 case)
         raise ValueError("n must be non-negative")
 
     # BUG: missing base case for n == 0
     if n == 1:
         return 1
+    if n == 0:
+        return 0
 
     a, b = 0, 1
     for _ in range(2, n + 1):
