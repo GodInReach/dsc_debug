@@ -306,7 +306,7 @@ def calculate_tax_bracket(income):
 
     return round(tax, 2)
 
-
+#DONE
 # ============================================================
 # FUNCTION 10: Graph Shortest Path (BFS)
 # ============================================================
@@ -327,7 +327,7 @@ def graph_shortest_path(graph, start, end):
         list: Shortest path as list of nodes, or [] if no path.
     """
     if start == end:
-        return []   # BUG: should return [start]
+        return [start]   # BUG: should return [start]
 
     if start not in graph:
         return []
@@ -347,13 +347,13 @@ def graph_shortest_path(graph, start, end):
         visited.add(node)
 
         for neighbor in graph.get(node, []):
-            new_path = path             # BUG: should be path.copy() or list(path)
+            new_path = list(path)             # BUG: should be path.copy() or list(path)
             new_path.append(neighbor)
             if neighbor == end:
                 return new_path
             queue.append(new_path)
 
-    return [start]   # BUG: should return [] when no path found
+    return []   # BUG: should return [] when no path found
 
 
 # ============================================================
