@@ -133,7 +133,7 @@ def calculate_compound_interest(principal, rate, compounds_per_year, years):
     amount = principal * (1 + rate / compounds_per_year) ** compounds_per_year * years
     return round(amount, 2)
 
-
+#DONE
 # ============================================================
 # FUNCTION 5: Merge Two Sorted Arrays
 # ============================================================
@@ -162,8 +162,8 @@ def merge_sorted_arrays(arr1, arr2):
             j += 1
 
     # BUG: appends from wrong index (i+1 / j+1 instead of i / j)
-    result.extend(arr1[i + 1:])
-    result.extend(arr2[j + 1:])
+    result.extend(arr1[i:])
+    result.extend(arr2[j:])
 
     return result
 
