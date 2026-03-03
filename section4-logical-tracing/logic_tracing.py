@@ -107,7 +107,7 @@ def find_majority_element(nums):
         if(nums.count(candidate)>len(nums)/2):
             return candidate  # Should verify count > n/2 before returning
 
-
+#DONE
 # ============================================================
 # FUNCTION 4: Compound Interest Calculator
 # ============================================================
@@ -130,7 +130,7 @@ def calculate_compound_interest(principal, rate, compounds_per_year, years):
     """
     # BUG: operator precedence — rate / compounds_per_year * years
     # should be rate / compounds_per_year, then ** (compounds_per_year * years)
-    amount = principal * (1 + rate / compounds_per_year) ** compounds_per_year * years
+    amount = principal * ((1 + rate / compounds_per_year) ** (compounds_per_year * years))
     return round(amount, 2)
 
 #DONE
