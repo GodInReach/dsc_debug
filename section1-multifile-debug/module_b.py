@@ -3,7 +3,6 @@ Analytics module
 """
 
 # BUG 10: Circular dependency - module_a imports module_b, module_b imports module_a
-from module_a import get_user_list
 
 analytics_log = []
 
@@ -19,6 +18,7 @@ def log_analytics(event_type, user_id):
 
 
 def get_analytics_summary():
+    from module_a import get_user_list
     """Get summary of analytics"""
     # This will crash due to circular import
     total_users = len(get_user_list())
