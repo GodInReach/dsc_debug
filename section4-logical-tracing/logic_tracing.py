@@ -226,7 +226,7 @@ def binary_search(sorted_list, target):
         return -1
     return len(sorted_list)        # BUG: should return -1 when not found
 
-
+#DONE
 # ============================================================
 # FUNCTION 8: Linked List Cycle Detection
 # ============================================================
@@ -239,7 +239,6 @@ class ListNode:
         self.val = val
         self.next = next
 
-
 def detect_cycle(head):
     """Detect if a linked list has a cycle.
 
@@ -250,7 +249,7 @@ def detect_cycle(head):
         bool: True if cycle exists, False otherwise.
     """
     if not head or not head.next:
-        return True   # BUG: should return False (no cycle if empty/single node)
+        return False   # BUG: should return False (no cycle if empty/single node)
 
     slow = head
     fast = head
@@ -259,9 +258,9 @@ def detect_cycle(head):
         slow = slow.next
         fast = fast.next.next    # correctly advances by 2
         if slow == fast:
-            return False          # BUG: should return True when cycle detected
+            return True          # BUG: should return True when cycle detected
 
-    return True   # BUG: should return False when no cycle found
+    return False   # BUG: should return False when no cycle found
 
 
 # ============================================================
