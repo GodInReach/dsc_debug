@@ -38,11 +38,14 @@ def process_payment(payment):
     Process a payment transaction
     BUG 4: Doesn't handle None gracefully
     """
+    if(payment is None):
+        print("NONE")
+
     config = load_config()
     
-    # BUG 5: Config values are strings but used as ints
-    timeout = config['API_TIMEOUT']  # This is "30" (string) not 30 (int)
-    max_retry = config['MAX_RETRY']  # This is "3" (string) not 3 (int)
+    #FIXED BUG 5: Config values are strings but used as ints
+    timeout = int(config['API_TIMEOUT'])  #FIXED This is "30" (string) not 30 (int)
+    max_retry = int(config['MAX_RETRY'])  #FIXED This is "3" (string) not 3 (int)
     
     # This will crash if payment is None
     if not validate_payment(payment):
