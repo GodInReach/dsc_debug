@@ -13,7 +13,7 @@ def calculate_capacity(current, maximum):
     Instead returns True when current >= maximum (already full).
     """
     # BUG: Returns True when at or over capacity (completely backwards!)
-    return current >= maximum
+    return current < maximum
 
 
 def validate_user_id(user_id):
