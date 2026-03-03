@@ -3,7 +3,7 @@
 Main entry point for User Allocation System
 """
 
-from config import MAX_USERS, SYSTEM_NAME  # BUG 1: Wrong module name ####
+from config import MAX_USERS, SYSTEM_NAME  #FIXED BUG 1: Wrong module name ####
 from state import get_user_count, reset_state
 from utils import calculate_capacity
 from module_a import add_user, get_user_list

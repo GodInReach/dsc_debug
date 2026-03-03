@@ -26,10 +26,10 @@ def get_max_capacity():
     return MAX_USERS
 
 
-# BUG 6: Hidden bonus bug - division by zero
+#FIXED BUG 6: Hidden bonus bug - division by zero
 def hidden_bonus_calculator(x):
     """Unused function with critical bug"""
-    return x / 0  # This will crash if ever called!
+    return x  # This will crash if ever called!
 
 
 # BUG 7: Another hidden issue
