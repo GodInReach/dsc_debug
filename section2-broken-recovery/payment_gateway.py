@@ -21,15 +21,24 @@ def validate_payment(payment):
     BUG 1: No null check - crashes if payment is None
     """
     # Missing: if payment is None: raise ValueError("Payment cannot be None")
-    
+    #fixed==============================================================================
     # BUG 2: No validation for negative amounts
+    if payment is None:
+        raise ValueError("Payment cannot be None")
+
+
     amount = payment['amount']
+   #solved==================================================================
     # Missing: if amount <= 0: raise ValueError("Amount must be positive")
-    
+    if amount <= 0:
+        raise ValueError("Amount must be positive")
+#solved============================================================================================
     # BUG 3: No transaction_id validation
     transaction_id = payment.get('transaction_id')
+
     # Missing: if not transaction_id: raise ValueError("Transaction ID required")
-    
+    if transaction_id is None:
+        raise ValueError("Transaction ID required")
     return True
 
 
@@ -38,14 +47,13 @@ def process_payment(payment):
     Process a payment transaction
     BUG 4: Doesn't handle None gracefully
     """
-    if(payment is None):
-        print("NONE")
-
+    if payment is None:
+        pass
     config = load_config()
     
-    #FIXED BUG 5: Config values are strings but used as ints
-    timeout = int(config['API_TIMEOUT'])  #FIXED This is "30" (string) not 30 (int)
-    max_retry = int(config['MAX_RETRY'])  #FIXED This is "3" (string) not 3 (int)
+    # BUG 5: Config values are strings but used as ints
+    timeout = config['API_TIMEOUT']  # This is "30" (string) not 30 (int)
+    max_retry =config['MAX_RETRY']  # This is "3" (string) not 3 (int)
     
     # This will crash if payment is None
     if not validate_payment(payment):
@@ -54,7 +62,7 @@ def process_payment(payment):
     # Simulate API call
     try:
         # BUG 6: Type error - can't compare string timeout with int
-        if timeout > 10:  # Crashes: '30' > 10 (str vs int)
+        if int(timeout) > 10:  # Crashes: '30' > 10 (str vs int)
             print(f"Using extended timeout: {timeout}")
         
         # Process transaction
@@ -63,7 +71,7 @@ def process_payment(payment):
         
     except Exception as e:
         # BUG 7: Swallows useful error information
-        return {"status": "error", "reason": "Processing failed"}
+        return {"status": "error", "reason": e}
 
 
 def execute_transaction(payment, max_retry):
@@ -95,7 +103,6 @@ def get_transaction_status(transaction_id):
     # BUG 10: Hidden bonus - no validation of transaction_id
     if not transaction_id:
         return None
-    
     # Simulate database lookup
     return {
         "transaction_id": transaction_id,
@@ -115,7 +122,6 @@ def log_error(error_message):
     })
     print(f"ERROR: {error_message}")
 
-
 if __name__ == "__main__":
     # Test case that should work
     payment = {
@@ -126,3 +132,4 @@ if __name__ == "__main__":
     
     result = process_payment(payment)
     print(f"Result: {result}")
+

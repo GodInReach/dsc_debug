@@ -1,7 +1,7 @@
 {
     "API_KEY": "sk_live_abcd1234567890",
-    "API_TIMEOUT": "30",
-    "MAX_RETRY": "3",
+    "API_TIMEOUT": 30,
+    "MAX_RETRY": 3,
     "ENABLE_LOGGING": true,
     "DATABASE_URL": "postgresql://localhost:5432/payments",
     "RATE_LIMIT": 1000,
