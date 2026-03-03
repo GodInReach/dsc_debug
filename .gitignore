@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env/
+.env
+.env.*
+.vscode/
+Thumbs.db
+.coverage
+htmlcov/
+.pytest_cache/
+*.pyc
+*zip
